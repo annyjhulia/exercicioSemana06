@@ -128,13 +128,9 @@ III) O código não funciona corretamente, pois Funcionario não pode herdar de 
 
 Quais das seguintes afirmações são verdadeiras sobre o código acima?
 
-a) I e II são verdadeiras.
+*a) I e II são verdadeiras.*
 
-b) I, II e III são verdadeiras.
-
-c) Apenas II é verdadeira.
-
-d) Apenas I é verdadeira.
+A classe Funcionario herda da classe Pessoa, enquanto o método super(nome, idade) chama o construtor da classe pai, iniciando os atributos nome e idade. O método apresentar() na classe Funcionario sobrepõe o método da classe pai, então a linha super.apresentar() chama o método original da classe Pessoa. O JavaScript moderno suporta classes e herança de classes.
 
 ______
 **8) Analise as afirmações a seguir. Indique a alternativa correta e justifique sua resposta.**
@@ -142,17 +138,14 @@ ______
 **Asserção:** O conceito de polimorfismo em Programação Orientada a Objetos permite que objetos de diferentes tipos respondam à mesma mensagem de maneiras diferentes.  
 **Razão:** Em JavaScript, o polimorfismo pode ser implementado utilizando o método de sobrecarga de métodos em uma classe.
 
-a) A asserção é falsa e a razão é verdadeira.
-
 b) A asserção é verdadeira e a razão é falsa.
 
-c) A asserção é verdadeira e a razão é verdadeira, mas a razão não explica a asserção.
+O conceito de polimorfismo na POO permite que que objetos de classes diferentes respondam à mesma mensagem diferentemente, de acordo com seus atributos. Porém, não pode ser implementado pelo método de sobrecarga de métodos, já que considera apenas a última declaração lida associada ao nome.
 
-d) A asserção é verdadeira e a razão é verdadeira, e a razão explica a asserção.
-
-______
+_____
 
 # Questões dissertativas
+
 9) O seguinte código deve retornar a soma do dobro dos números de um array, mas contém erros. Identifique os problema e corrija o código para que funcione corretamente. Adicione comentários ao código explicado sua solução para cada problema.
 
 ```javascript
@@ -165,6 +158,28 @@ function somaArray(numeros) {
 }
 console.log(somaArray([1, 2, 3, 4]));
 ```
+
+Código revisado e comentado:
+
+```javascript
+//define a função
+function somaArray(numeros) {
+
+    //define o inicio da soma
+    let soma = 0;
+
+    //define o intervalo, até onde a soma vai e que o vamor de i aumenta em 1
+    for (let i = 0; i < numeros.length; i++) {
+        //define a soma dos elementos do array após multiplicá-los por 2
+        soma += 2*numeros[i];
+    }
+    //retorna o valor de soma
+    return soma;
+}
+//define os elementos do array a serem inicializados e impressos
+console.log(somaArray([1, 2, 3, 4]));
+```
+
 ______
 10) Crie um exemplo prático no qual você tenha duas classes:
 
@@ -172,3 +187,42 @@ ______
 - Uma classe `Livro` que herda de `Produto` e modifica o método `calcularDesconto()`, aplicando um desconto de 20% no preço dos livros.
 
 Explique como funciona a herança nesse contexto e como você implementaria a modificação do método na classe `Livro`.
+
+```javascript
+class Produto {
+    //criar os atributos de Produto
+    constructor(nome, preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+  
+    calcularDesconto() {
+        // aplica um desconto fixo de 10% no preço do produto
+        const desconto = this.preco * 0.10;
+        return this.preco - desconto;
+    }
+
+    precificar() {
+        console.log(`Produto: ${this.nome}, Preço: ${this.idade} .`);
+      }
+  }
+  
+  class Livro extends Produto {
+    //cria os atributos de livro
+    constructor(nome, preco) {
+        //chama o construtor da classe pai
+        super(nome, preco);
+        this.autor = autor;
+    }
+  
+    calcularDesconto() {
+        // Sobrescreve o método da classe pai para aplicar 20% de desconto
+        const desconto = this.preco * 0.20;
+        return this.preco - desconto;
+    }
+
+    precificar() {
+        console.log(`Livro: ${this.nome}, Preço: ${this.idade} .`);
+      }
+  }
+```

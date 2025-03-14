@@ -153,7 +153,7 @@ class Funcionario extends Pessoa {
 
   apresentar() {
     super.apresentar();
-    console.log(`Meu salário é R$ ${this.salario}.`);
+    console.log(`Meu salário é R$ ${this.salario}`);
   }
 }
 ```

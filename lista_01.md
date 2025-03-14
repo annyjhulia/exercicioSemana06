@@ -202,6 +202,7 @@ class Produto {
         return this.preco - desconto;
     }
 
+    
     precificar() {
         console.log(`Produto: ${this.nome}, Preço: ${this.idade} .`);
       }
@@ -216,7 +217,7 @@ class Produto {
     }
   
     calcularDesconto() {
-        // Sobrescreve o método da classe pai para aplicar 20% de desconto
+        //sobrescreve o método da classe pai para aplicar 20% de desconto
         const desconto = this.preco * 0.20;
         return this.preco - desconto;
     }
@@ -226,3 +227,4 @@ class Produto {
       }
   }
 ```
+Nesse contexto, a herança permite que a classe Livro herde todos os métodos e propriedades da classe Produto por meio de extends. Para implementar a modificação do método na classe livro, seria necessário criar instâncias na classe, permitindo a diferente atribuição ou polimorfismos.
